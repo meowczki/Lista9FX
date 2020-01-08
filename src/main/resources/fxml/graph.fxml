@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@graphStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphOla.Controller">
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelMi" alignment="TOP_LEFT" prefHeight="12.0" prefWidth="36.0" text="μ:">
+               <padding>
+                  <Insets top="40.0" />
+               </padding></Label>
+            <TextField fx:id="tfGetMi">
+              </TextField>
+            <Label text="t0" />
+            <TextField fx:id="tfGetT0" />
+            <Label text="t" />
+            <TextField fx:id="tfGetT" />
+             <Label text="v0" />
+             <TextField fx:id="tfGetV0" />
+             <Label text="x0" />
+             <TextField fx:id="tfGetX0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></TextField>
+             <Label text="liczba punktów" />
+             <TextField fx:id="tfGetLP">
+                 <VBox.margin>
+                     <Insets bottom="10.0" />
+                 </VBox.margin></TextField>
+             <ChoiceBox fx:id="choiceBoxGetMethod" prefWidth="150.0" value="fazowy">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="x(t)" />
+                         <String fx:value="v(t)" />
+                         <String fx:value="fazowy" />
+                     </FXCollections>
+                 </items>
+                 <VBox.margin>
+                     <Insets bottom="10.0" />
+                 </VBox.margin>
+             </ChoiceBox>
+            <Button fx:id="BtnGenerate" alignment="TOP_CENTER" contentDisplay="TOP" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#generateOnClick" prefHeight="25.0" prefWidth="85.0" text="generate" textAlignment="JUSTIFY" textOverrun="CLIP">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Button>
+            <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearOnClick" prefHeight="26.0" prefWidth="117.0" text="clear" />
+             
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <ScatterChart fx:id="graph" animated="false" nodeOrientation="LEFT_TO_RIGHT" stylesheets="@graphStyle.css" title="Wykresy równania różniczkowego" BorderPane.alignment="CENTER">
+        <xAxis>
+          <NumberAxis label="x" side="BOTTOM" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" label="y" side="LEFT" />
+        </yAxis>
+      </ScatterChart>
+   </center>
+</BorderPane>
